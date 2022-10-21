@@ -18,6 +18,7 @@
         <h4 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h4>
         <h5 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h5>
         <h6 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h6>
+        <p class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</p>
     </marquee>
 </body>
 </html>
