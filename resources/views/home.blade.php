@@ -12,7 +12,12 @@
 </head>
 <body>
     <marquee>
-        <h1 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS NGAMBIL REPOSITORY ORANG!!!</h1>
+        <h1 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h1>
+        <h2 class="fst-italis">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h2>
+        <h3 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h3>
+        <h4 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h4>
+        <h5 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h5>
+        <h6 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS MASIH NGAMBIL REPOSITORY ORANG!!!</h6>
     </marquee>
 </body>
 </html>
