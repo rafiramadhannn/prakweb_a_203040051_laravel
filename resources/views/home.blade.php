@@ -12,7 +12,7 @@
 </head>
 <body>
     <marquee>
-        <h1 class="fst-italic">GANTENG DOANG KALO NUGAS NGAMBIL REPOSITORY ORANG!!!</h1>
+        <h1 class="fst-italic">MALU BOSS UDAH GEDE KALO NUGAS NGAMBIL REPOSITORY ORANG!!!</h1>
     </marquee>
 </body>
 </html>
