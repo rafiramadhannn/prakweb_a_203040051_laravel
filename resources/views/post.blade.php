@@ -2,9 +2,9 @@
 
 @section('container')
     <article>
-        <h2>{{ $post["title"] }}</h2>
-        <h5>{{ $post["author"] }}</h5>
-        <p>{{ $post["body"] }}</p>
+        <h2 class="text-center fw-bold">{{ $post["title"] }}</h2>
+        <h5 class="text-center fw-semibold">{{ $post["author"] }}</h5>
+        <p class="text-end fw-normal">{{ $post["body"] }}</p>
     </article>
-    <a href="/blog">Back</a>
+    <a class="btn btn-danger" href="/blog">Back</a>
 @endsection 
