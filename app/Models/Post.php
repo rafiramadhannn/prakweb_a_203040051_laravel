@@ -7,6 +7,7 @@ class Post
 {
     private static $blog_posts = [
         [
+            "puisi" => "Puisi",
             "title" => "Lima",
             "slug" => "Lima",
             "author" => "Rafi Ramadhan",

@@ -1,14 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
-
+<h1 class="text-center">Puisi</h1>
 @foreach ($posts as $post)
-<article class="mb-5">
-    <h2 class="d-grid gap-2">
-        <a class="btn btn-dark btn-lg" href="/posts/{{ $post["slug"] }}">{{ $post["title"] }}</a>
+<article class="d-grid gap-2 col-3 mx-auto"> 
+    <h2 class="btn btn-dark" type="button">
+        <a class="btn btn-dark btn-lg" href="/posts/{{ $post["slug"] }}">{{ $post["title"] }} : {{ $post["author"] }} </a>
     </h2>
-    <h5 class="text-center fw-semibold">{{ $post["author"] }}</h5>
-    <p class="text-end fw-normal">{{ $post["body"] }}</p>
+   
 </article>
 
 @endforeach
