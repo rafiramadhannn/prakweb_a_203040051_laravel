@@ -7,5 +7,5 @@
 
         {!! $post->body !!}
         
-    <a class="btn btn-danger" href="/blog">Back</a>
+    <a class="btn btn-danger mt-3" href="/categories">Back</a>
 @endsection 
