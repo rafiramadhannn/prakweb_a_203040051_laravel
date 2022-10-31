@@ -20,13 +20,15 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view ('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "active" => "Home"
     ]);
 });
 
 Route::get('/about', function () {
     return view ('about', [
         "title" => "About",
+        "active" => "About",
         "name" => "Rafi Ramadhan",
         "email" => "rafiramadhan711@gmail.com",
         "motivasi" => "Apapun yang kamu lakukan, selalu berikan 100 persen. Kecuali jika kamu sedang mendonorkan darah",
@@ -40,6 +42,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function() {
     return view('categories', [
         'title' => 'Post Categories',
+        "active" => "Categories",
         'categories' => Category::all()
     ]);
 });
