@@ -2,19 +2,24 @@
 
 @section('container')
 <h1 class="text-center mb-3 pb-2">Puisi</h1>
-@foreach ($categories as $category)
-<ul class="mb-3 border-bottom pb-3">
-    <li class="d-grid gap-2 col-3 mx-auto">
-        <h2 class="btn btn-dark" type="button">
-            <a class="btn btn-dark btn-lg" href="/categories/{{ $category->slug }}">{{ $category->name }}</a>
-        </h2>
-    </li>
-</ul>
-   
-   
 
-
-@endforeach
+<div class="container">
+    <div class="row">
+        @foreach($categories as $category)
+       
+        <div class="col-md-4">
+            <a href="/categories/{{ $category->slug }}">
+                <div class="card bg-dark text-white">
+                    <img src="https://source.unsplash.com/500x400?dark nature,dark" class="card-img" alt="{{ $category->name }}">
+                    <div class="card-img-overlay d-flex align-items-center p-0">
+                    <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0, 0, 0, 0.7)">{{ $category->name }}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @endforeach
+    </div>
+</div>
 
 @endsection
 
