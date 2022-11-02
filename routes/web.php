@@ -5,7 +5,8 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\User;
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +22,14 @@ use App\Models\User;
 Route::get('/', function () {
     return view ('home', [
         "title" => "Home",
-        "active" => "Home"
+        "active" => "home"
     ]);
 });
 
 Route::get('/about', function () {
     return view ('about', [
         "title" => "About",
-        "active" => "About",
+        "active" => "about",
         "name" => "Rafi Ramadhan",
         "email" => "rafiramadhan711@gmail.com",
         "motivasi" => "Apapun yang kamu lakukan, selalu berikan 100 persen. Kecuali jika kamu sedang mendonorkan darah",
@@ -36,13 +37,13 @@ Route::get('/about', function () {
     ]);
 });
 
-
+Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']); 
 
 Route::get('/categories', function() {
     return view('categories', [
         'title' => 'Post Categories',
-        "active" => "Categories",
+        "active" => "categories",
         'categories' => Category::all()
     ]);
 });
@@ -50,6 +51,7 @@ Route::get('/categories', function() {
 Route::get('/categories/{category:slug}', function(Category $category) {
     return view('posts', [
         'title' => "Karya : $category->name",
+        'active' => "categories",
         'posts' => $category->posts->load('category'),
         'category' => $category->name
     ]);
@@ -58,6 +60,10 @@ Route::get('/categories/{category:slug}', function(Category $category) {
 Route::get('/authors/{author:username}', function(User $author) {
     return view('posts', [
         'title' => "Post By Author : $author->name",
+        'active' => 'posts',
         'posts' => $author->posts->load('category', 'author')
     ]);
 });
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);

@@ -1,20 +1,23 @@
 @extends('layouts.main')
 
 @section('container')
-<h1 class="text-center">{{ $title }}</h1>
-<h1 class="mb-3 text-center">{{ $title }}</h1>
+<h1 class="mb-5 text-center">{{ $title }}</h1>
 
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
-            <form action="/blog">
-                @if (request('title'))
-                    <input type="hidden" name="title" value="{{ request('title') }}">
+            <form action="/posts">
+                {{-- @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
+                @if (request('author'))
+                    <input type="hidden" name="author" value="{{ request('author') }}">
+                @endif --}}
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search.." name="search"
+                    <input type="text" class="form-control" placeholder="Search.." name="search" 
                         value="{{ request('search') }}">
                     <button class="btn btn-dark" type="submit">Search</button>
-                </div>
+                  </div>
+                  
             </form>
         </div>
     </div>
@@ -36,9 +39,7 @@
         <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read More</a>
         </div>
     </div>
-@else
-    <p class="text-center fs-4">No post found</p>
-@endif
+
 
 <div class="container">
     <div class="row">
@@ -65,8 +66,13 @@
         @endforeach
     </div>
 </div>
+@else
+    <p class="text-center fs-4">No post found</p>
+@endif
 
-<a class="btn btn-danger mt-3" href="/categories">Back</a>
+{{-- <div class="d-flex  justify-content-end">
+    {{ $posts->links() }}
+</div> --}}
 
 @endsection
 
