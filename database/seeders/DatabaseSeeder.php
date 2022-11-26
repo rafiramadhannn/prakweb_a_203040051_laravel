@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Hash;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
@@ -26,6 +26,13 @@ class DatabaseSeeder extends Seeder
   
      public function run()
     {
+        User::create([
+           'name' => 'Rafi Ramadhan',
+           'username' => 'admin',
+           'email' => 'rafiramadhan711@gmail.com',
+           'password' => Hash::make('password')
+        ]);
+
        User::factory(4)->create();
 
        Category::create([
