@@ -4,7 +4,12 @@
         <h1 class="h2">My Post</h1>
     </div>
 
-    <div class="table-responsive col-lg-10">
+    @if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+    </div>
+    @endif
+    <div class="table-responsive col-lg-8">
         <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create new posts</a>
         <table class="table table-striped table-sm">
             <thead>
@@ -24,11 +29,7 @@
                         <td>
                             <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span
                                     data-feather="eye"></span></a>
-                        </td>
-                        <td>
                             <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-                        </td>
-                        <td>
                             <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
                         </td>
                     </tr>

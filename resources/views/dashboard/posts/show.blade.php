@@ -12,11 +12,7 @@
                 <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
                     alt="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="img-fluid">
                 <article class="my-3 fs-5"></article> {!! $post->body !!} </article>
-
-
-
-                <a href="/posts" class="d-block mt-3"><span data-feather="arrow-left" class="align-text-bottom"></span>Back
-                    to Posts</a>
+                
             </div>
         </div>
     </div>

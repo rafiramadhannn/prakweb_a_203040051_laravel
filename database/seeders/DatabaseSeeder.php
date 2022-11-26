@@ -26,13 +26,6 @@ class DatabaseSeeder extends Seeder
   
      public function run()
     {
-        User::create([
-           'name' => 'Rafi Ramadhan',
-           'username' => 'admin',
-           'email' => 'rafiramadhan711@gmail.com',
-           'password' => Hash::make('password')
-        ]);
-
        User::factory(4)->create();
 
        Category::create([
@@ -46,14 +39,14 @@ class DatabaseSeeder extends Seeder
        ]);
 
        Category::create([
-        'name' => 'Chairil Anwar',
-        'slug' => 'chairil-anwar'
-    ]);
+            'name' => 'Chairil Anwar',
+            'slug' => 'chairil-anwar'
+        ]);
 
-    Category::create([
-        'name' => 'Widji Thukul',
-        'slug' => 'whidji-thukul'
-    ]);
+        Category::create([
+            'name' => 'Widji Thukul',
+            'slug' => 'whidji-thukul'
+        ]);
 
        Post::factory(15)->create();
     }
