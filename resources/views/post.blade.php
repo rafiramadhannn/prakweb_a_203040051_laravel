@@ -11,6 +11,9 @@
             <img src="https://source.unsplash.com/1200x400?dark nature,dark" 
             alt="{{ $post->category->name }}" class="img-fluid">
 
+            {{-- <img src="https://source.unsplash.com/random/?Cryptocurrency&2" 
+            alt="{{ $post->category->name }}" class="img-fluid"> --}}
+
             <article class="my-3 fs-5">
                 {!! $post->body !!}
             </article>
