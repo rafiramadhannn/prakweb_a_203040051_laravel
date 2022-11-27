@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 class DashboardPostController extends Controller
 {
@@ -96,28 +97,35 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $posts)
+    public function update(Request $request, Post $post)
     {
         $rules = ([
             'title' => 'required|max:255',
             'category_id' => 'required',
-            'slug' => 'required|unique:posts',
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
 
-        if ($request->slug != $posts->slug) {
+        if ($request->slug != $post->slug) {
             $rules['slug'] = 'required|unique:posts';
         }
 
         $validateData = $request->validate($rules);
 
-        $validateData['user_id'] = auth()->user()->id;
-        $validateData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
 
-        Post::where('id', $posts->id)
-            ->update($validateData);
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        return redirect('dashboard/posts')->with('success', 'Post has been updated!');
+        Post::where('id', $post->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/posts')->with('success', 'Post has been updated!');
     }
 
     /**
@@ -128,9 +136,12 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->image) {
+            Storage::delete($post->image);
+        }
         Post::destroy($post->id);
 
-        return redirect('dashboard/posts')->with('success', 'Post has been deleted!');
+        return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
     }
 
     public function checkSlug(Request $request)
