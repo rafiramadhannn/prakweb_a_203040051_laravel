@@ -98,13 +98,14 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $posts)
     {
-        $rules = [
+        $rules = ([
             'title' => 'required|max:255',
             'category_id' => 'required',
+            'slug' => 'required|unique:posts',
             'body' => 'required'
-        ];
+        ]);
 
-        if ($request->slug != $post->slug) {
+        if ($request->slug != $posts->slug) {
             $rules['slug'] = 'required|unique:posts';
         }
 
@@ -113,7 +114,7 @@ class DashboardPostController extends Controller
         $validateData['user_id'] = auth()->user()->id;
         $validateData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        Post::where('id', $post->id)
+        Post::where('id', $posts->id)
             ->update($validateData);
 
         return redirect('dashboard/posts')->with('success', 'Post has been updated!');
