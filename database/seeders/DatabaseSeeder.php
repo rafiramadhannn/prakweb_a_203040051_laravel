@@ -51,6 +51,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'chairil-anwar'
         ]);
 
-       Post::factory(15)->create();
+       Post::factory(7)->create();
     }
 }

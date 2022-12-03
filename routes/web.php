@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::get('/about', function () {
         "active" => "about",
         "name" => "Rafi Ramadhan",
         "email" => "rafiramadhan711@gmail.com",
-        "motivasi" => "Apapun yang kamu lakukan, selalu berikan 100 persen. Kecuali jika kamu sedang mendonorkan darah",
+        "motivasi" => "Together is Easy, To Get Her is Very Hard.",
         "image" => "rafi.jpeg"
     ]);
 });
@@ -80,3 +81,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::get('/dashboard/category/checkSlug', [DashboardCategoryController::class, 'checkSlug'])
+    ->middleware('auth');
+Route::resource('/dashboard/category', DashboardCategoryController::class)->middleware('auth');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
